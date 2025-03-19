@@ -37,7 +37,7 @@
           "description": "Nixd path"
         },
         "nixd.formattingCommand": {
-          "type": "string",
+          "type": "array",
           "default": null,
           "description": "Nixd formatting command option."
         },
