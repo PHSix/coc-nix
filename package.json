@@ -44,6 +44,11 @@
           "type": "string",
           "default": "nixfmt",
           "description": "Nix format command"
+        },
+        "coc-nix.nixdConfig": {
+          "type": "object",
+          "default": {},
+          "description": "Nixd configuration"
         }
       }
     },

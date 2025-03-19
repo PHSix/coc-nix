@@ -13,6 +13,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
     return;
   }
 
+  const channel = window.createOutputChannel("coc-nix");
+
   let command = "nixd";
 
   if (!executable("nixd")) {
@@ -36,6 +38,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     synchronize: {
       fileEvents: workspace.createFileSystemWatcher("**/*.nix"),
     },
+    outputChannel: channel,
   };
 
   const client = new LanguageClient(
