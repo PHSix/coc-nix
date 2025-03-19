@@ -36,10 +36,15 @@
           "default": null,
           "description": "Nixd path"
         },
-        "coc-nix.nixdConfig": {
-          "type": "object",
-          "default": {},
-          "description": "Nixd configuration"
+        "nixd.formattingCommand": {
+          "type": "string",
+          "default": null,
+          "description": "Nixd formatting command option."
+        },
+        "nixd.nixpkgsExpr": {
+          "type": "string",
+          "default": "import <nixpkgs> { }",
+          "description": "Nixd formatting command option."
         }
       }
     },

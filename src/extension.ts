@@ -5,7 +5,19 @@ import {
   window,
   workspace,
 } from "coc.nvim";
-import type { ExtensionContext, LanguageClientOptions } from "coc.nvim";
+import type { ExtensionContext, LanguageClientOptions  } from "coc.nvim";
+
+const getNixSettings = () => {
+  const cfg = workspace.getConfiguration("nixd");
+  return {
+    formatting: {
+      command: cfg.get<string | null>("nixd.formattingCommand", null),
+    },
+    nixpkgs: {
+      expr: cfg.get<string>("nixd.nixpkgsExpr", "import <nixpkgs> { }"),
+    },
+  }
+}
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const config = workspace.getConfiguration("coc-nix");
@@ -33,7 +45,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   };
 
   const clientOptions: LanguageClientOptions = {
-    initializationOptions: config.get("nixdConfig", {}),
+    initializationOptions: getNixSettings(),
     documentSelector: [{ scheme: "file", language: "nix" }],
     synchronize: {
       fileEvents: workspace.createFileSystemWatcher("**/*.nix"),
