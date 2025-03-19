@@ -1,6 +1,6 @@
 {
   "name": "@ph_chen/coc-nix",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Simply nixd service for coc.nvim.",
   "author": "ph <chenyi.ph@outlook.com>",
   "license": "MIT",
