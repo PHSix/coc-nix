@@ -1,0 +1,57 @@
+{
+  "name": "@ph_chen/coc-nix",
+  "version": "0.2.0",
+  "description": "Simply nixd service for coc.nvim.",
+  "author": "ph <chenyi.ph@outlook.com>",
+  "license": "MIT",
+  "main": "dist/extension.js",
+  "keywords": [
+    "coc.nvim"
+  ],
+  "engines": {
+    "coc": "^0.0.82"
+  },
+  "scripts": {
+    "watch": "node esbuild.mjs --watch",
+    "build": "node esbuild.mjs",
+    "prepare": "node esbuild.mjs"
+  },
+  "devDependencies": {
+    "coc.nvim": "^0.0.83-next.18",
+    "esbuild": "^0.19.8",
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.3.3"
+  },
+  "activationEvents": [
+    "onLanguage:nix"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "coc-nix configuration",
+      "properties": {
+        "coc-nix.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-nix extension"
+        },
+        "coc-nix.nixdPath": {
+          "type": "string",
+          "default": null,
+          "description": "Nixd path"
+        },
+        "coc-nix.format": {
+          "type": "string",
+          "default": "nixfmt",
+          "description": "Nix format command"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "coc-nix.Command",
+        "title": "coc-nix command title"
+      }
+    ]
+  }
+}
